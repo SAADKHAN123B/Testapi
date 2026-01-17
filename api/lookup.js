@@ -1,4 +1,3 @@
-// pages/api/lookup.js
 import fs from "fs";
 import path from "path";
 
@@ -10,8 +9,8 @@ export default function handler(req, res) {
   }
 
   try {
-    // JSON ko runtime me read karte hain taaki deploy me path issues na ho
-    const filePath = path.join(process.cwd(), "data", "Data.json");
+    // Vercel deploy me bhi api folder ke andar path correct hoga
+    const filePath = path.join(process.cwd(), "api", "Data", "Data.json");
     const fileData = fs.readFileSync(filePath, "utf-8");
     const data = JSON.parse(fileData);
 
